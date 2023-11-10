@@ -10,7 +10,7 @@
 /**
  * main - Entry point of the shell program
  *
- * Description: A simple shell that reads and executes user commands.
+ * simple_shell 0.1.
  *
  * Return: Always 0.
  */
@@ -40,7 +40,7 @@ args[0] = buffer;
 args[1] = NULL;
 if (execve(buffer, args, NULL) == -1)
 {
-perror("Execve failed");
+perror("./shell");
 exit(EXIT_FAILURE);
 }
 }
