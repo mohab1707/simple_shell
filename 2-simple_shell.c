@@ -7,6 +7,13 @@
 
 #define BUFFER_SIZE 1024
 
+/**
+ * main - Entry point of the shell program
+ *
+ * simple_shell 0.2.
+ *
+ * Return: Always 0.
+ */
 int main(void)
 {
 char buffer[BUFFER_SIZE];
@@ -39,7 +46,7 @@ else if (pid == 0)
 {
 if (execve(args[0], args, NULL) == -1)
 {
-perror("Execve failed");
+perror("./shell");
 exit(EXIT_FAILURE);
 }
 }
