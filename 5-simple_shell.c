@@ -9,6 +9,13 @@ extern char **environ;
 
 #define BUFFER_SIZE 1024
 
+/**
+ * main - Entry point of the shell program
+ *
+ * simple_shell 0.5.
+ *
+ * Return: Always 0.
+ */
 int main(void)
 {
 char buffer[BUFFER_SIZE];
