@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - Entry point of the program
+ * main - simple_shell
  *
  * Return: 0 on success
  */
