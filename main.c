@@ -5,12 +5,14 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
+extern char **environ;
+
 #define BUFFER_SIZE 1024
 
 /**
  * main - Entry point of the shell program
  *
- * simple_shell.
+ * simple_shell 0.5.
  *
  * Return: Always 0.
  */
@@ -26,9 +28,10 @@ char *path_copy;
 char *token;
 char *full_path;
 int command_found;
+ char **env;
 while (1)
 {
-printf(":) ");
+printf("$ ");
 if (fgets(buffer, BUFFER_SIZE, stdin) == NULL)
 {
 break;
@@ -67,6 +70,13 @@ free(path_copy);
 if (strcmp(args[0], "exit") == 0)
 {
 exit(0);
+}
+else if (strcmp(args[0], "env") == 0)
+{
+for (env = environ; *env; env++)
+{
+printf("%s\n", *env);
+}
 }
 if (command_found)
 {
