@@ -44,6 +44,7 @@ args[i] = strtok(NULL, " ");
 path = getenv("PATH");
 path_copy = strdup(path);
 token = strtok(path_copy, ":");
+full_path = NULL;
 command_found = 0;
 while (token != NULL)
 {
@@ -63,9 +64,12 @@ free(full_path);
 token = strtok(NULL, ":");
 }
 free(path_copy);
+if (strcmp(args[0], "exit") == 0)
+{
+exit(0);
+}
 if (command_found)
 {
-printf("Executing: %s\n", full_path);
 pid = fork();
 if (pid == -1)
 {
@@ -88,7 +92,6 @@ if (WIFEXITED(status) && WEXITSTATUS(status) == 127)
 printf("%s: not found\n", args[0]);
 }
 }
-free(full_path);
 }
 else
 {
